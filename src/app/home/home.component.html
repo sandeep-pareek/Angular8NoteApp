@@ -2,10 +2,12 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Desc</th>
-          <th>Header</th>
+          <th>#ID</th>
+          <th>Title</th>
+          <th>Description</th>
           <th>Status</th>
+          <th>tag</th>
+          <th>Updated date</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -13,24 +15,35 @@
         <tr *ngFor="let note of notes">
       
           <td>{{ note.id }}</td>
+          <td> {{ note.title }}</td>
           <td> {{ note.description }}</td>
-          <td> {{ note.header }}</td>
-          <td> {{ note.status }}</td>
+          <td> {{ note.status }}</td>          
+          <td> {{ note.tags }}</td>
+          <td> {{ note.lastUpdatedDate }}</td>
           <td>
-            <button class="btn btn-primary" (click)="selectNote(note)"> Show details</button>
+            <button class="btn btn-primary" (click)="selectNote(note)">Show details</button>
           </td>
         </tr>
       </tbody>
     </table>
     <div class="card text-center" *ngIf="selectedNote">
         <div class="card-header">
-          # {{selectedNote.id}}
+          #{{selectedNote.id}}
         </div>
         <div class="card-block">
-          <h4 class="card-title">{{selectedNote.header}}</h4>
+          <h4 class="card-title">{{selectedNote.title}}</h4>
           <p class="card-text">
             {{selectedNote.description}}
-          </p>    
+          </p>
+          <p>
+            {{selectedNote.status}}
+          </p>
+          <p>
+            {{selectedNote.tags}}
+          </p>
+          <p>
+            {{selectedNote.lastUpdatedDate}}
+          </p>
         </div>
       </div>
   </div>
