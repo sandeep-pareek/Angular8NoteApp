@@ -1,2 +1,36 @@
-<br/><br/><br/>
-<p>home works!</p>
+<div class="container" style="margin-top: 70px;">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Desc</th>
+          <th>Header</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let note of notes">
+      
+          <td>{{ note.id }}</td>
+          <td> {{ note.description }}</td>
+          <td> {{ note.header }}</td>
+          <td> {{ note.status }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="selectNote(note)"> Show details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="card text-center" *ngIf="selectedNote">
+        <div class="card-header">
+          # {{selectedNote.id}}
+        </div>
+        <div class="card-block">
+          <h4 class="card-title">{{selectedNote.header}}</h4>
+          <p class="card-text">
+            {{selectedNote.description}}
+          </p>    
+        </div>
+      </div>
+  </div>
