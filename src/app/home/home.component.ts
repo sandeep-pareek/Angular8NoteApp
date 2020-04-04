@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
 
   notes;
   selectedNote;
-  smartphone: any = [];
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
@@ -26,5 +25,26 @@ export class HomeComponent implements OnInit {
   }
   public selectNote(note){
     this.selectedNote = note;
+  }
+
+  public editNote(note){
+    // alert("dited: " + note.title)
+    this.api.updateNote(note).subscribe((data: any[])=>{
+      const index = this.notes.indexOf(note, 0);
+      if (index > -1) {
+        this.notes.splice(index, 1);
+        this.notes.splice(index, 0, data);
+      }
+      // this.notes.indexOf(data) === -1 ? this.notes.push(data):null;
+    });
+  }
+
+  public deleteNote(note) {
+    // alert("edited: " + note.title)
+    this.api.deleteNote(note.id).subscribe((data: any[])=>{
+      this.notes.splice(this.notes.indexOf(note), 1);
+      // alert("update: " + data)
+    });
+  
   }
 }

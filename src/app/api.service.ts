@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-const localUrl = 'http://localhost:8080/note/list';
-// const localUrl = 'https://cors-anywhere.herokuapp.com/http://localhost:8080/note/list';
-// const localUrl = "https://jsonplaceholder.typicode.com/todos/1";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
+  private localUrl = 'http://localhost:8080/note';
   constructor(private http: HttpClient) { }
 
-  getNotes() {
-    return this.http.get(localUrl);
+  getNotes(): Observable<any>{
+    return this.http.get(this.localUrl + "/list");
+  }
+  updateNote(note: Object): Observable<any>{
+    return this.http.put(this.localUrl + "/", note);
+  }
+  deleteNote(noteId: number): Observable<any>{
+    return this.http.delete(this.localUrl + "/" + noteId, { responseType: 'text' });
   }
 }
