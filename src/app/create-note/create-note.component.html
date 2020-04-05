@@ -1,0 +1,35 @@
+<div class="container" style="margin-top: 70px;">
+
+    <div class="row">
+  
+      <div class="col-sm-8 offset-sm-2">
+  
+        <div class="info-form">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input  type="text" formControlName="title" class="form-control" aria-describedby="title" placeholder="Enter Title">
+              <small id="title" class="form-text text-muted">Enter your note's Title</small>
+
+              <label for="description">Note Description</label>
+              <textarea formControlName="description" class="form-control" aria-describedby="description">
+              </textarea>
+              <small id="description" class="form-text text-muted">Enter your note's description</small>
+  
+              <label for="status">Note Status</label>
+              <input type="text" formControlName="status" class="form-control" aria-describedby="status"
+                placeholder="Enter your status">
+              <small id="status" class="form-text text-muted">Enter your note's status</small>
+  
+              <label for="tags">Note tags</label>
+              <input type="text" formControlName="tags" class="form-control" aria-describedby="tags" placeholder="Enter tags">
+              <small id="tags" class="form-text text-muted">Enter your note's tags</small>
+              <button class="btn btn-primary" type="submit">Create note</button>
+              <!-- <button type="submit">Submit</button> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+  </div>

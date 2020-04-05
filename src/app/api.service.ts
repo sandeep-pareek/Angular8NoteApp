@@ -16,6 +16,10 @@ export class ApiService {
   updateNote(note: Object): Observable<any>{
     return this.http.put(this.localUrl + "/", note);
   }
+  createNote(note: Object): Observable<any>{
+    alert("2 TEST: "+ note);
+    return this.http.post(this.localUrl + "/", note);
+  }
   deleteNote(noteId: number): Observable<any>{
     return this.http.delete(this.localUrl + "/" + noteId, { responseType: 'text' });
   }
