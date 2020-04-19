@@ -22,9 +22,6 @@ export class HomeComponent implements OnInit {
         console.log(data);
       });
   }
-  public selectNote(note){
-    this.selectedNote = note;
-  }
 
   public editNote(note){
     // alert("dited: " + note.title)

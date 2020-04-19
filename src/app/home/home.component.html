@@ -7,19 +7,23 @@
           <th>Title</th>
           <th>Description</th>
           <th>Status</th>
-          <th>tag</th>
+          <th>tags</th>
           <th>Updated date</th>
           <th>Actions</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let note of notes let idx=index">
+        <tr *ngFor="let note of notes">
           <td>{{ note.id }}</td>
           <td contenteditable="true" [textContent]="note.title" (input)="note.title = $event.target.textContent"> {{ note.title }}</td>
           <td contenteditable="true" [textContent]="note.description" (input)="note.description = $event.target.textContent"> {{ note.description }}</td>
           <td contenteditable="true" [textContent]="note.status" (input)="note.status = $event.target.textContent"> {{ note.status }}</td> 
-          <td contenteditable="true" [textContent]="note.tags" (input)="note.tags = $event.target.textContent"> {{ note.tags }}</td>
+          <td>
+            <span *ngFor="let tag of note.tags" class="btn btn-info col-6 align-self-center">
+              {{tag.tagName}} <br/>
+            </span>
+          </td>
           <td> {{ note.lastUpdatedDate | date: 'dd/MM/yyyy'}}</td>
           <td>
             <button class="btn btn-primary" (click)="deleteNote(note)">Delete</button>
