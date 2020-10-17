@@ -30,9 +30,7 @@
     "moment": "^2.24.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
-  },
-  "devDependencies": {
+    "zone.js": "~0.10.2",
     "@angular-devkit/build-angular": "^0.1001.7",
     "@angular/language-service": "~9.0.7",
     "@types/jasmine": "~3.5.0",
