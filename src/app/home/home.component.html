@@ -14,6 +14,12 @@
         </tr>
       </thead>
       <tbody>
+        <tr *ngIf="notes.length < 1">
+          <td>#1</td>
+          <td>Sample Title </td>
+          <td>Sample Description</td>
+          <td>Sample Status</td>
+        </tr>
         <tr *ngFor="let note of notes">
           <td>{{ note.id }}</td>
           <td contenteditable="true" [textContent]="note.title" (input)="note.title = $event.target.textContent"> {{ note.title }}</td>
